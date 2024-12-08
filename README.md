@@ -183,74 +183,7 @@ classDiagram
     Skeleton --> ObjectToMove
     ScifiSoldier --> ObjectToMove
 ```
-## Diagramme de composant UML
-Représente l'architecture globale du projet.
-```mermaid
-classDiagram
-    class Player {
-        +selectPiece()
-        +movePiece()
-        +endTurn()
-    }
-    class TurnManager {
-        +startTurn()
-        +changePlayer()
-        +checkEndGame()
-    }
-    class PieceManager {
-        +checkPossibleMovements()
-        +checkCapture()
-        +promoteToQueen()
-    }
-    class GridManager {
-        +isValidMove()
-        +getAvailableMoves()
-        +updateBoardState()
-    }
-    class UnitManager {
-        +assignUnitToMovePiece()
-        +animateUnit()
-    }
-    class EventHandler {
-        +onPieceCaptured()
-        +onTurnEnd()
-    }
-    class ServiceLocator {
-        +registerService()
-        +getService()
-    }
 
-    Player --> TurnManager : "Initiates turn"
-    TurnManager --> PieceManager : "Checks piece movement"
-    PieceManager --> GridManager : "Verifies valid moves"
-    PieceManager --> UnitManager : "Directs units for animation"
-    EventHandler --> PieceManager : "Triggers events"
-    ServiceLocator --> [Player, TurnManager, PieceManager, GridManager, UnitManager, EventHandler] : "Provides access to services"
-```
-
-## Diagramme d’Activité UML pour un Tour de Jeu
-Décrit les étapes et décisions d’un tour de jeu.
-```mermaid
-activityDiagram
-    start
-    :Début du tour;
-    :Sélectionner une pièce;
-    :Vérifier les mouvements légaux;
-    :Vérifier les captures possibles;
-    :Effectuer un mouvement;
-    :Effectuer une capture (si applicable);
-    :Mettre à jour l'état des pièces;
-    :Vérifier si la promotion en reine est nécessaire;
-    :Vérifier la fin de tour;
-    if (Fin de tour) then
-        :Changer de joueur;
-        :Mettre à jour l'état des unités animées;
-    else
-        :Continuer avec ce joueur;
-    endif
-    :Passer au joueur suivant;
-    stop
-```
 ## Diagramme de Séquence UML pour un Tour de Jeu
 Montre les interactions entre les composants pendant un tour de jeu complet.
 ```mermaid
