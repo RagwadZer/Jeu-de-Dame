@@ -259,3 +259,18 @@ classDiagram
     ServiceLocator --> UnitManager : "Provides access"
     ServiceLocator --> EventHandler : "Provides access"
 
+## Diagramme d’Activité UML
+Décrit les étapes et décisions d’un tour de jeu.
+```mermaid
+flowchart TD
+    Start([Début du tour]) --> SelectPiece([Sélectionner une pièce])
+    SelectPiece --> VerifyMoves([Vérifier les mouvements légaux])
+    VerifyMoves --> VerifyCaptures([Vérifier les captures possibles])
+    VerifyCaptures --> MakeMove([Effectuer un mouvement])
+    MakeMove --> CheckPromotion([Vérifier si la promotion en reine est nécessaire])
+    CheckPromotion --> EndTurn([Vérifier la fin de tour])
+    
+    EndTurn -->|Fin de tour| ChangePlayer([Changer de joueur])
+    EndTurn -->|Continuer| ContinueTurn([Continuer avec ce joueur])
+    ChangePlayer --> Start
+    ContinueTurn --> Start
