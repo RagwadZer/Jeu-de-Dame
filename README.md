@@ -227,6 +227,7 @@ classDiagram
     EventHandler --> PieceManager : "Triggers events"
     ServiceLocator --> [Player, TurnManager, PieceManager, GridManager, UnitManager, EventHandler] : "Provides access to services"
 ```
+
 ## Diagramme d’Activité UML pour un Tour de Jeu
 Décrit les étapes et décisions d’un tour de jeu.
 ```mermaid
@@ -251,7 +252,6 @@ activityDiagram
     stop
 ```
 ## Diagramme de Séquence UML pour un Tour de Jeu
-
 Montre les interactions entre les composants pendant un tour de jeu complet.
 ```mermaid
 sequenceDiagram
