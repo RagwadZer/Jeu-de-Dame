@@ -73,6 +73,7 @@ RAFANOMEZANTSOA Nicolas Yoan
 [https://ragwadzer.itch.io/]
 [https://www.linkedin.com/in/nicolas-yoan-rafanomezantsoa-486917178/]
 [nicolasrafano@yahoo.com]
+GDD du projet : [https://docs.google.com/document/d/15Iug51UzMKbDGP_gNvCx6pELDpBrLhFhQHzzyvhh9is/edit?usp=sharing]
 
 ## Diagramme de Classes UML
 Représente les relations entre les classes principales du projet.
