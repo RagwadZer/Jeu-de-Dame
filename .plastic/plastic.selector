@@ -1,0 +1,3 @@
+repository "ChessGame@Ragwad@cloud"
+  path "/"
+    smartbranch "/main/fonctionnaliter capture obligatoire"
