@@ -7,6 +7,7 @@
 
 ## **📖 Description**
 
+Game Design Document : [https://docs.google.com/document/d/15Iug51UzMKbDGP_gNvCx6pELDpBrLhFhQHzzyvhh9is/edit?usp=sharing]  
 Ce dépôt contient un **jeu de dames complet**, réalisé en utilisant Unity et C#.  
 Les objectifs principaux de ce projet sont :  
 - Montrer mes compétences en programmation gameplay avec **Unity**.  
@@ -69,11 +70,11 @@ Gestion de projets complets avec une architecture de code claire.
 Développement d’un gameplay engageant et fonctionnel.
 
 👨‍💻 Auteur
-RAFANOMEZANTSOA Nicolas Yoan
+RAFANOMEZANTSOA Nicolas Yoan  
 [https://ragwadzer.itch.io/]  
 [https://www.linkedin.com/in/nicolas-yoan-rafanomezantsoa-486917178/]  
 [nicolasrafano@yahoo.com]  
-Game Design Document : [https://docs.google.com/document/d/15Iug51UzMKbDGP_gNvCx6pELDpBrLhFhQHzzyvhh9is/edit?usp=sharing]
+
 
 ## Diagramme de Classes UML
 Représente les relations entre les classes principales du projet.
