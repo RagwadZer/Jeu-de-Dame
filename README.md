@@ -210,6 +210,8 @@ sequenceDiagram
     TurnManager->>PieceManager: Vérifier mouvements du joueur suivant
     TurnManager->>Player: Passer au tour suivant
 ```
+## Diagramme de Composant UML
+Représente l'architecture globale du projet.
 classDiagram
     class Player {
         +selectPiece()
