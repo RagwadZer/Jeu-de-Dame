@@ -70,9 +70,9 @@ Développement d’un gameplay engageant et fonctionnel.
 
 👨‍💻 Auteur
 RAFANOMEZANTSOA Nicolas Yoan
-https://ragwadzer.itch.io/
-https://www.linkedin.com/in/nicolas-yoan-rafanomezantsoa-486917178/
-nicolasrafano@yahoo.com
+[https://ragwadzer.itch.io/]
+[https://www.linkedin.com/in/nicolas-yoan-rafanomezantsoa-486917178/]
+[nicolasrafano@yahoo.com]
 
    
 
