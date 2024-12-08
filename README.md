@@ -74,5 +74,30 @@ RAFANOMEZANTSOA Nicolas Yoan
 [https://www.linkedin.com/in/nicolas-yoan-rafanomezantsoa-486917178/]
 [nicolasrafano@yahoo.com]
 
-   
+```mermaid
+classDiagram
+    class ClickableObject {
+        <<abstract>>
+        +BaseColor: Color
+        +HoovedColor: Color
+        +SelectedColor: Color
+        +CaseX: int
+        +CaseY: int
+        +CaseOnGrid: Vector2Int
+        +OnPointerClick()
+        +OnPointerEnter()
+        +OnPointerExit()
+        +OnSelect()
+        +OnDeselect()
+    }
+    ClickableObject <|-- Piece
+    ClickableObject <|-- Plane
+    Unit <|-- Skeleton
+    Unit <|-- ScifiSoldier
+    Piece --> PieceManager
+    Plane --> PlaneManager
+    TurnManager --> PieceManager
+    ServiceLocator --> TurnManager
+    ServiceLocator --> PieceManager
+    ServiceLocator --> GridManager
 
