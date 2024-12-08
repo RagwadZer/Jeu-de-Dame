@@ -210,3 +210,49 @@ sequenceDiagram
     TurnManager->>PieceManager: Vérifier mouvements du joueur suivant
     TurnManager->>Player: Passer au tour suivant
 ```
+## Diagramme de composant UML
+Représente l'architecture globale du projet.
+```mermaid
+classDiagram
+    class Player {
+        +selectPiece()
+        +movePiece()
+        +endTurn()
+    }
+    class TurnManager {
+        +startTurn()
+        +changePlayer()
+        +checkEndGame()
+    }
+    class PieceManager {
+        +checkPossibleMovements()
+        +checkCapture()
+        +promoteToQueen()
+    }
+    class GridManager {
+        +isValidMove()
+        +getAvailableMoves()
+        +updateBoardState()
+    }
+    class UnitManager {
+        +assignUnitToMovePiece()
+        +animateUnit()
+    }
+    class EventHandler {
+        +onPieceCaptured()
+        +onTurnEnd()
+    }
+    class ServiceLocator {
+        +registerService()
+        +getService()
+    }
+
+    Player --> TurnManager : "Initiates turn"
+    TurnManager --> PieceManager : "Checks piece movement"
+    PieceManager --> GridManager : "Verifies valid moves"
+    PieceManager --> UnitManager : "Directs units for animation"
+    EventHandler --> PieceManager : "Triggers events"
+    ServiceLocator --> [Player, TurnManager, PieceManager, GridManager, UnitManager, EventHandler] : "Provides access to services"
+```
+
+
