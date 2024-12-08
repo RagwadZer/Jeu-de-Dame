@@ -182,7 +182,7 @@ classDiagram
     ServiceLocator --> GridManager
     Skeleton --> ObjectToMove
     ScifiSoldier --> ObjectToMove
-
+```
 ## Diagramme de composant UML
 Représente l'architecture globale du projet.
 ```mermaid
@@ -226,7 +226,7 @@ classDiagram
     PieceManager --> UnitManager : "Directs units for animation"
     EventHandler --> PieceManager : "Triggers events"
     ServiceLocator --> [Player, TurnManager, PieceManager, GridManager, UnitManager, EventHandler] : "Provides access to services"
-
+```
 ## Diagramme d’Activité UML pour un Tour de Jeu
 Décrit les étapes et décisions d’un tour de jeu.
 ```mermaid
@@ -249,7 +249,7 @@ activityDiagram
     endif
     :Passer au joueur suivant;
     stop
-
+```
 ## Diagramme de Séquence UML pour un Tour de Jeu
 
 Montre les interactions entre les composants pendant un tour de jeu complet.
@@ -276,4 +276,4 @@ sequenceDiagram
     TurnManager->>TurnManager: Changer joueur
     TurnManager->>PieceManager: Vérifier mouvements du joueur suivant
     TurnManager->>Player: Passer au tour suivant
-
+```
