@@ -212,6 +212,7 @@ sequenceDiagram
 ```
 ## Diagramme de Composant UML
 Représente l'architecture globale du projet.
+```mermaid
 classDiagram
     class Player {
         +selectPiece()
