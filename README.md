@@ -74,6 +74,8 @@ RAFANOMEZANTSOA Nicolas Yoan
 [https://www.linkedin.com/in/nicolas-yoan-rafanomezantsoa-486917178/]
 [nicolasrafano@yahoo.com]
 
+## Diagramme de Classes UML
+Représente les relations entre les classes principales du projet.
 ```mermaid
 classDiagram
     class ClickableObject {
@@ -90,6 +92,84 @@ classDiagram
         +OnSelect()
         +OnDeselect()
     }
+    class Piece {
+        +IsJ1: bool
+        +IsActive: bool
+        +IsQueen: bool
+        +NbPossibleMouv: int
+        +NbCapturePossible: int
+        +caseOnGridPossibleMouvPosition: List<Vector3>
+        +CheckPossibleMouvement()
+        +PromoteToQueen()
+    }
+    class Plane {
+        +CaseX: int
+        +CaseY: int
+        +BaseColor: Color
+        +HoovedColor: Color
+        +OnPointerClick()
+        +OnPointerEnter()
+        +OnPointerExit()
+    }
+    class TurnManager {
+        +isJ1Turn: bool
+        +OnTurnBegin()
+        +OnEndTurn()
+        +ChangeCamera()
+    }
+    class PieceManager {
+        +PiecesInGame: List<Piece>
+        +MoveLastSelectedPieceTo()
+        +CheckPossibleMouvement()
+        +CheckQueenPossibleMouvement()
+    }
+    class GridManager {
+        +NbCaseLongueur: int
+        +NbCaseHauteur: int
+        +CaseOccuped: bool[,]
+        +GetCaseCenter()
+        +IsWithinGrid()
+    }
+    class EventHandler {
+        +EatPieceFromCase()
+        +EndEatPieceAnimation()
+        +OnTurnEnding()
+        +OnGameEnd()
+    }
+    class PlaneManager {
+        +ShowMouvPlane()
+        +ShowEatPlane()
+        +HidePossibleMouv()
+    }
+    class ServiceLocator {
+        +Register<T>()
+        +Get<T>()
+    }
+    class Unit {
+        <<abstract>>
+        +unitManager: Transform
+        +targetObject: GameObject
+        +speed: float
+        +isMoving: bool
+        +SetTarget()
+        +MoveToTarget()
+        +OnObjectReached()
+    }
+    class Skeleton {
+        +ReadyToLift: bool
+        +LiftAnObject: bool
+        +DecideNextAction()
+        +ActionOnAllUnitsReady()
+        +HandleLayerMaskWeight()
+    }
+    class ScifiSoldier {
+        +IsAiming: bool
+        +IsShooting: bool
+        +DecideNextAction()
+        +ActionOnAllUnitsReady()
+        +HandleAnimation()
+    }
+
     ClickableObject <|-- Piece
     ClickableObject <|-- Plane
     Unit <|-- Skeleton
@@ -100,4 +180,98 @@ classDiagram
     ServiceLocator --> TurnManager
     ServiceLocator --> PieceManager
     ServiceLocator --> GridManager
+    Skeleton --> ObjectToMove
+    ScifiSoldier --> ObjectToMove
 
+
+## Diagramme de composant UML
+Représente l'architecture globale du projet.
+```mermaid
+classDiagram
+    class Player {
+        +selectPiece()
+        +movePiece()
+        +endTurn()
+    }
+    class TurnManager {
+        +startTurn()
+        +changePlayer()
+        +checkEndGame()
+    }
+    class PieceManager {
+        +checkPossibleMovements()
+        +checkCapture()
+        +promoteToQueen()
+    }
+    class GridManager {
+        +isValidMove()
+        +getAvailableMoves()
+        +updateBoardState()
+    }
+    class UnitManager {
+        +assignUnitToMovePiece()
+        +animateUnit()
+    }
+    class EventHandler {
+        +onPieceCaptured()
+        +onTurnEnd()
+    }
+    class ServiceLocator {
+        +registerService()
+        +getService()
+    }
+
+    Player --> TurnManager : "Initiates turn"
+    TurnManager --> PieceManager : "Checks piece movement"
+    PieceManager --> GridManager : "Verifies valid moves"
+    PieceManager --> UnitManager : "Directs units for animation"
+    EventHandler --> PieceManager : "Triggers events"
+    ServiceLocator --> [Player, TurnManager, PieceManager, GridManager, UnitManager, EventHandler] : "Provides access to services"
+
+## Diagramme d’Activité UML pour un Tour de Jeu
+Décrit les étapes et décisions d’un tour de jeu.
+```mermaid
+activityDiagram
+    start
+    :Début du tour;
+    :Sélectionner une pièce;
+    :Vérifier les mouvements légaux;
+    :Vérifier les captures possibles;
+    :Effectuer un mouvement;
+    :Effectuer une capture (si applicable);
+    :Mettre à jour l'état des pièces;
+    :Vérifier si la promotion en reine est nécessaire;
+    :Vérifier la fin de tour;
+    if (Fin de tour) then
+        :Changer de joueur;
+        :Mettre à jour l'état des unités animées;
+    else
+        :Continuer avec ce joueur;
+    endif
+    :Passer au joueur suivant;
+    stop
+
+## Diagramme de Séquence UML pour un Tour de Jeu
+Montre les interactions entre les composants pendant un tour de jeu complet.
+sequenceDiagram
+    participant Player as Joueur
+    participant Piece as Pièce
+    participant GridManager as GestionGrille
+    participant PieceManager as GestionPièce
+    participant TurnManager as GestionTour
+    participant UnitManager as GestionUnités
+    participant EventHandler as GestionÉvénements
+
+    Joueur->>Piece: Sélectionner une pièce
+    Piece->>GridManager: Vérifier mouvement légal
+    GridManager->>Piece: Retourner cases possibles
+    Piece->>PieceManager: Vérifier captures possibles
+    PieceManager->>Piece: Retourner captures possibles
+    Piece->>UnitManager: Vérifier animations d'unités
+    UnitManager->>Piece: Retourner unités nécessaires
+    Piece->>EventHandler: Déclencher événement de capture (si applicable)
+    EventHandler->>PieceManager: Mettre à jour état des pièces
+    Piece->>TurnManager: Vérifier fin de tour
+    TurnManager->>TurnManager: Changer joueur
+    TurnManager->>PieceManager: Vérifier mouvements du joueur suivant
+    TurnManager->>Player: Passer au tour suivant
