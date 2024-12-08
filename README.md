@@ -258,7 +258,7 @@ classDiagram
     ServiceLocator --> GridManager : "Provides access"
     ServiceLocator --> UnitManager : "Provides access"
     ServiceLocator --> EventHandler : "Provides access"
-
+```
 ## Diagramme d’Activité UML
 Décrit les étapes et décisions d’un tour de jeu.
 ```mermaid
