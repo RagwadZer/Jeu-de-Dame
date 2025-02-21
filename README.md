@@ -69,12 +69,6 @@ Maîtrise des systèmes Unity (scènes, gestion d’événements, interaction UI
 Gestion de projets complets avec une architecture de code claire.
 Développement d’un gameplay engageant et fonctionnel.
 
-👨‍💻 Auteur
-RAFANOMEZANTSOA Nicolas Yoan  
-[https://ragwadzer.itch.io/]  
-[https://www.linkedin.com/in/nicolas-yoan-rafanomezantsoa-486917178/]  
-[nicolasrafano@yahoo.com]  
-
 
 ## Diagramme de Classes UML
 Représente les relations entre les classes principales du projet.
